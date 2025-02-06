@@ -1,5 +1,5 @@
 {
-    "name": "peartreeweb/message-utilities",
+    "name": "eventsourcerer/message-utilities",
     "description": "Utilities for creating messages",
     "autoload": {
         "psr-4": {
