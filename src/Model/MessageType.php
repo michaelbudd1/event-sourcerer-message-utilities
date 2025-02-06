@@ -6,6 +6,7 @@ namespace PearTreeWebLtd\EventSourcererMessageUtilities\Model;
 
 enum MessageType: string
 {
+    case Acknowledgement = 'ACKNOWLEDGEMENT';
     case CatchupRequest  = 'CATCHUP';
     case NewEvent        = 'NEW_EVENT';
     case ProvideIdentity = 'IDENTITY';
