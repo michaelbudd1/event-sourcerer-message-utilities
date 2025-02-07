@@ -7,7 +7,7 @@ namespace PearTreeWebLtd\EventSourcererMessageUtilities\Model;
 enum MessagePattern: string
 {
     case Catchup         = MessageType::CatchupRequest->value . ' %s %s %s';
-    case Acknowledgement = MessageType::Acknowledgement->value . ' %s %d';
+    case Acknowledgement = MessageType::Acknowledgement->value . ' %s %s %d';
     case NewEvent        = MessageType::NewEvent->value . ' %s';
     case ProvideIdentity = MessageType::ProvideIdentity->value . ' %s';
 }
