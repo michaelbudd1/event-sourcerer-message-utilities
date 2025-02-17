@@ -10,6 +10,7 @@ enum MessageType: string
     case CatchupRequest  = 'CATCHUP';
     case NewEvent        = 'NEW_EVENT';
     case ProvideIdentity = 'IDENTITY';
+    case RejectEvent     = 'REJECT_EVENT';
 
     public static function values(): array
     {
