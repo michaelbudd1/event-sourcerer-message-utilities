@@ -21,6 +21,11 @@ trait FulfilIsInteger
         return $this->value;
     }
 
+    public function isGreaterThan(self $other): bool
+    {
+        return $this->value > $other->value;
+    }
+
     public function toString(): string
     {
         return (string) $this->value;
