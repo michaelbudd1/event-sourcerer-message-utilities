@@ -36,6 +36,11 @@ trait FulfilIsInteger
         return (string) $this->value;
     }
 
+    public function __toString(): string
+    {
+        return $this->toString();
+    }
+
     public function increment(): self
     {
         return new self($this->value + 1);
