@@ -11,6 +11,11 @@ trait FulfilIsInteger
         return new self($value);
     }
 
+    public static function fromString(string $value): self
+    {
+        return new self((int) $value);
+    }
+
     public static function zero(): self
     {
         return new self(0);
