@@ -21,6 +21,11 @@ trait FulfilIsString
     {
     }
 
+    public function sameAs(self $other): bool
+    {
+        return $other->toString() === $this->value;
+    }
+
     public static function fromString(string $value): self
     {
         return new self($value);
