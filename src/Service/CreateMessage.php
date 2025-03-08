@@ -56,14 +56,16 @@ final readonly class CreateMessage
     public static function forRejection(
         StreamId $streamId,
         ApplicationId $applicationId,
-        Checkpoint $checkpoint
+        Checkpoint $checkpoint,
+        string $originalMessage
     ): Message {
         return Message::fromString(
             sprintf(
                 MessagePattern::RejectEvent->value,
                 $streamId,
                 $applicationId,
-                $checkpoint->toString()
+                $checkpoint->toString(),
+                $originalMessage
             ) . MessageMarkup::NewEventParser->value
         );
     }
