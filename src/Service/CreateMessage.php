@@ -65,8 +65,18 @@ final readonly class CreateMessage
                 $streamId,
                 $applicationId,
                 $checkpoint->toString(),
-                $originalMessage
+                self::parseOriginalEvent($originalMessage)
             ) . MessageMarkup::NewEventParser->value
+        );
+    }
+
+    private static function parseOriginalEvent(string $originalMessage): string
+    {
+        return sprintf(
+            '%s %s %s',
+            MessageMarkup::RejectedEventStart->value,
+            $originalMessage,
+            MessageMarkup::RejectedEventEnd->value
         );
     }
 }
