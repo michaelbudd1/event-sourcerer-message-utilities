@@ -41,14 +41,16 @@ final readonly class CreateMessage
     public static function forAcknowledgement(
         StreamId $streamId,
         ApplicationId $applicationId,
-        Checkpoint $checkpoint
+        Checkpoint $checkpoint,
+        Checkpoint $allStreamCheckpoint
     ): Message {
         return Message::fromString(
             sprintf(
                 MessagePattern::Acknowledgement->value,
                 $streamId,
                 $applicationId,
-                $checkpoint->toString()
+                $checkpoint->toInt(),
+                $allStreamCheckpoint->toInt()
             ) . MessageMarkup::NewEventParser->value
         );
     }
