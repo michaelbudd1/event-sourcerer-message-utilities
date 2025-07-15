@@ -24,7 +24,7 @@ final readonly class CreateMessage
                 $streamId,
                 $applicationId,
                 $checkpoint?->toString() ?? ''
-            )
+            ) . MessageMarkup::NewEventParser->value
         );
     }
 
@@ -34,7 +34,7 @@ final readonly class CreateMessage
             sprintf(
                 MessagePattern::ProvideIdentity->value,
                 $applicationId
-            )
+            ). MessageMarkup::NewEventParser->value
         );
     }
 
