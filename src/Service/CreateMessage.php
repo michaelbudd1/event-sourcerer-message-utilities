@@ -13,6 +13,16 @@ use PearTreeWebLtd\EventSourcererMessageUtilities\Model\StreamId;
 
 final readonly class CreateMessage
 {
+    public static function forNewEvent(string $eventJson): Message
+    {
+        return Message::fromString(
+            sprintf(
+                MessagePattern::NewEvent->value,
+                $eventJson,
+            ) . MessageMarkup::NewEventParser->value
+        );
+    }
+
     public static function forCatchupRequest(
         StreamId $streamId,
         ApplicationId $applicationId,
