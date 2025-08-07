@@ -6,6 +6,7 @@ namespace PearTreeWebLtd\EventSourcererMessageUtilities\Service;
 
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\ApplicationId;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\Checkpoint;
+use PearTreeWebLtd\EventSourcererMessageUtilities\Model\IPAddress;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\Message;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessageMarkup;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessagePattern;
@@ -79,6 +80,13 @@ final readonly class CreateMessage
                 $checkpoint->toString(),
                 self::parseOriginalEvent($originalMessage)
             ) . MessageMarkup::NewEventParser->value
+        );
+    }
+
+    public static function forNewConnection(IPAddress $ipAddress): Message
+    {
+        return Message::fromString(
+            sprintf(MessagePattern::NewConnection->value, $ipAddress)
         );
     }
 
