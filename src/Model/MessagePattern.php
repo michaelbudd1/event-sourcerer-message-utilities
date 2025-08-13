@@ -11,5 +11,4 @@ enum MessagePattern: string
     case NewEvent        = MessageType::NewEvent->value . ' %s';
     case ProvideIdentity = MessageType::ProvideIdentity->value . ' %s';
     case RejectEvent     = MessageType::RejectEvent->value . ' %s %s %s %s';
-
 }
