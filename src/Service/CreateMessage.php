@@ -7,6 +7,8 @@ namespace PearTreeWebLtd\EventSourcererMessageUtilities\Service;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\ApplicationId;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\ApplicationType;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\Checkpoint;
+use PearTreeWebLtd\EventSourcererMessageUtilities\Model\EventName;
+use PearTreeWebLtd\EventSourcererMessageUtilities\Model\EventVersion;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\Message;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessageMarkup;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessagePattern;
@@ -14,14 +16,18 @@ use PearTreeWebLtd\EventSourcererMessageUtilities\Model\StreamId;
 
 final readonly class CreateMessage
 {
-    /**
-     * @param array{stream: string, event: string, version: int, properties: array} $payload
-     */
-    public static function forWriteNewEvent(array $payload): Message
-    {
+    public static function forWriteNewEvent(
+        StreamId $streamId,
+        EventName $eventName,
+        EventVersion $eventVersion,
+        array $payload
+    ): Message {
         return Message::fromString(
             sprintf(
                 MessagePattern::WriteNewEvent->value,
+                $streamId,
+                $eventName,
+                $eventVersion,
                 json_encode($payload, JSON_THROW_ON_ERROR)
             )
         );
