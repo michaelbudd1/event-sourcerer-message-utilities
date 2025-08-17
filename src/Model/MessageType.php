@@ -7,10 +7,11 @@ namespace PearTreeWebLtd\EventSourcererMessageUtilities\Model;
 enum MessageType: string
 {
     case Acknowledgement = 'ACKNOWLEDGEMENT';
-    case CatchupRequest  = 'CATCHUP';
-    case NewEvent        = 'NEW_EVENT';
+    case CatchupRequest = 'CATCHUP';
+    case NewEvent = 'NEW_EVENT';
     case ProvideIdentity = 'IDENTITY';
-    case RejectEvent     = 'REJECT_EVENT';
+    case RejectEvent = 'REJECT_EVENT';
+    case WriteNewEvent = 'WRITE_NEW_EVENT';
 
     public static function values(): array
     {

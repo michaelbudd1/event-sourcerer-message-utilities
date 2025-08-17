@@ -14,6 +14,19 @@ use PearTreeWebLtd\EventSourcererMessageUtilities\Model\StreamId;
 
 final readonly class CreateMessage
 {
+    /**
+     * @param array{stream: string, event: string, version: int, properties: array} $payload
+     */
+    public static function forWriteNewEvent(array $payload): Message
+    {
+        return Message::fromString(
+            sprintf(
+                MessagePattern::WriteNewEvent->value,
+                json_encode($payload, JSON_THROW_ON_ERROR)
+            )
+        );
+    }
+
     public static function forNewEvent(string $eventJson): Message
     {
         return Message::fromString(
