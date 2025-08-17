@@ -29,7 +29,7 @@ final readonly class CreateMessage
                 $eventName,
                 $eventVersion,
                 json_encode($payload, JSON_THROW_ON_ERROR)
-            )
+            ) . MessageMarkup::NewEventParser->value
         );
     }
 
