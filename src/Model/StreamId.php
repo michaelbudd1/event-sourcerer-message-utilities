@@ -14,4 +14,9 @@ final readonly class StreamId implements IsString
     {
         return self::ALL_STREAM === $this->value;
     }
+
+    public static function allStream(): self
+    {
+        return self::fromString(self::ALL_STREAM);
+    }
 }
