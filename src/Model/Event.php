@@ -8,6 +8,7 @@ final readonly class Event
 {
     public function __construct(
         public Checkpoint $allSequenceCheckpoint,
+        public Checkpoint $catchupStreamCheckpoint,
         public EventVersion $eventVersion,
         public EventName $eventName,
         public array $payload,
