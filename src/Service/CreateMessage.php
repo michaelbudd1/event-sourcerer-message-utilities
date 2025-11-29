@@ -71,6 +71,7 @@ final readonly class CreateMessage
 
     public static function forAcknowledgement(
         StreamId $streamId,
+        StreamId $catchupStreamId,
         ApplicationId $applicationId,
         Checkpoint $checkpoint,
         Checkpoint $allStreamCheckpoint
@@ -79,6 +80,7 @@ final readonly class CreateMessage
             sprintf(
                 MessagePattern::Acknowledgement->value,
                 $streamId,
+                $catchupStreamId,
                 $applicationId,
                 $checkpoint->toInt(),
                 $allStreamCheckpoint->toInt()

@@ -21,6 +21,11 @@ trait FulfilIsInteger
         return new self(0);
     }
 
+    public static function one(): self
+    {
+        return new self(1);
+    }
+
     public function toInt(): int
     {
         return $this->value;
@@ -49,5 +54,32 @@ trait FulfilIsInteger
     public function increment(): self
     {
         return new self($this->value + 1);
+    }
+
+    public function add(int|self $amount): self
+    {
+        if ($amount instanceof self) {
+            return new self($this->value + $amount->value);
+        }
+
+        return new self($this->value + $amount);
+    }
+
+    public function subtract(int|self $amount): self
+    {
+        if ($amount instanceof self) {
+            return new self($this->value - $amount->value);
+        }
+
+        return new self($this->value - $amount);
+    }
+
+    public function multiplyBy(int|self $amount): self
+    {
+        if ($amount instanceof self) {
+            return new self($this->value * $amount->value);
+        }
+
+        return new self($this->value * $amount);
     }
 }
