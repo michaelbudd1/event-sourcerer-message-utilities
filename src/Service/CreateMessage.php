@@ -76,6 +76,7 @@ final readonly class CreateMessage
         StreamId $streamId,
         StreamId $catchupStreamId,
         ApplicationId $applicationId,
+        WorkerId $workerId,
         Checkpoint $checkpoint,
         Checkpoint $allStreamCheckpoint
     ): Message {
@@ -85,6 +86,7 @@ final readonly class CreateMessage
                 $streamId,
                 $catchupStreamId,
                 $applicationId,
+                $workerId,
                 $checkpoint->toInt(),
                 $allStreamCheckpoint->toInt()
             ) . MessageMarkup::NewEventParser->value
