@@ -13,6 +13,7 @@ use PearTreeWebLtd\EventSourcererMessageUtilities\Model\Message;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessageMarkup;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessagePattern;
 use PearTreeWebLtd\EventSourcererMessageUtilities\Model\StreamId;
+use PearTreeWebLtd\EventSourcererMessageUtilities\Model\WorkerId;
 
 final readonly class CreateMessage
 {
@@ -46,6 +47,7 @@ final readonly class CreateMessage
     public static function forCatchupRequest(
         StreamId $streamId,
         ApplicationId $applicationId,
+        WorkerId $workerId,
         ?Checkpoint $checkpoint = null
     ): Message {
         return Message::fromString(
@@ -53,6 +55,7 @@ final readonly class CreateMessage
                 MessagePattern::Catchup->value,
                 $streamId,
                 $applicationId,
+                $workerId->toString(),
                 $checkpoint?->toString() ?? ''
             ) . MessageMarkup::NewEventParser->value
         );
