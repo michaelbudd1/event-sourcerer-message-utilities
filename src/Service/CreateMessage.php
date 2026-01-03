@@ -61,13 +61,17 @@ final readonly class CreateMessage
         );
     }
 
-    public static function forProvidingIdentity(ApplicationId $applicationId, ApplicationType $applicationType): Message
-    {
+    public static function forProvidingIdentity(
+        ApplicationId $applicationId,
+        ApplicationType $applicationType,
+        WorkerId $workerId
+    ): Message {
         return Message::fromString(
             sprintf(
                 MessagePattern::ProvideIdentity->value,
                 $applicationId,
-                $applicationType->value
+                $applicationType->value,
+                $workerId
             ). MessageMarkup::NewEventParser->value
         );
     }
