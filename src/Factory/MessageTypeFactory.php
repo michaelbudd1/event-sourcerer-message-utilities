@@ -16,7 +16,7 @@ final class MessageTypeFactory
         $type = MessageType::tryFrom($messageParts[0]);
 
         if (null === $type) {
-            throw CouldNotCreateMessageType::becauseTypeIsUnknown($messageParts[0]);
+            throw CouldNotCreateMessageType::becauseTypeIsUnknown($messageParts[0], $data);
         }
 
         return $type;

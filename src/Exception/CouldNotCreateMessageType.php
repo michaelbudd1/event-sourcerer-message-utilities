@@ -8,13 +8,14 @@ use PearTreeWebLtd\EventSourcererMessageUtilities\Model\MessageType;
 
 final class CouldNotCreateMessageType extends \RuntimeException
 {
-    public static function becauseTypeIsUnknown(string $type): self
+    public static function becauseTypeIsUnknown(string $type, string $fullMessage): self
     {
         return new self(
             sprintf(
-                'Could not create message type because type "%s" is unknown. Known types are: %s',
+                'Could not create message type because type "%s" is unknown. Known types are: %s. Full message was: %s',
                 $type,
-                implode(', ', MessageType::values())
+                implode(', ', MessageType::values()),
+                $fullMessage
             )
         );
     }
