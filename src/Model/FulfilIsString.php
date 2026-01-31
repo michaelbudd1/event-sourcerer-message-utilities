@@ -28,7 +28,7 @@ trait FulfilIsString
 
     public static function fromString(string $value): self
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toString(): string
