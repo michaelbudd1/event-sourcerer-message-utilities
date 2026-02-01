@@ -114,6 +114,23 @@ final readonly class CreateMessage
         );
     }
 
+    public static function forReadingStream(
+        StreamId $streamId,
+        ApplicationId $applicationId,
+        ?Checkpoint $start = null,
+        ?Checkpoint $end = null,
+    ): Message {
+        return Message::fromString(
+            sprintf(
+                MessagePattern::ReadStream->value,
+                $streamId,
+                $applicationId,
+                $start?->toString() ?? '',
+                $end?->toString() ?? '',
+            )
+        );
+    }
+
     private static function parseOriginalEvent(string $originalMessage): string
     {
         return sprintf(

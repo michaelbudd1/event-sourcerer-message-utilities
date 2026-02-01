@@ -10,6 +10,7 @@ enum MessageType: string
     case CatchupRequest = 'CATCHUP';
     case NewEvent = 'NEW_EVENT';
     case ProvideIdentity = 'IDENTITY';
+    case ReadStream = 'READ_STREAM';
     case RejectEvent = 'REJECT_EVENT';
     case WriteNewEvent = 'WRITE_NEW_EVENT';
 

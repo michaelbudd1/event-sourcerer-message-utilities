@@ -10,6 +10,7 @@ enum MessagePattern: string
     case Acknowledgement = MessageType::Acknowledgement->value . ' %s %s %s %s %d %d';
     case NewEvent = MessageType::NewEvent->value . ' %s';
     case ProvideIdentity = MessageType::ProvideIdentity->value . ' %s %s %s';
+    case ReadStream = MessageType::ReadStream->value . ' %s %s %d %d';
     case RejectEvent = MessageType::RejectEvent->value . ' %s %s %s %s';
     case WriteNewEvent = MessageType::WriteNewEvent->value . ' %s %s %s %s';
 }
