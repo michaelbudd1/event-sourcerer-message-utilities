@@ -127,7 +127,7 @@ final readonly class CreateMessage
                 $applicationId,
                 $start?->toString() ?? '',
                 $end?->toString() ?? '',
-            )
+            ) . MessageMarkup::NewEventParser->value
         );
     }
 
