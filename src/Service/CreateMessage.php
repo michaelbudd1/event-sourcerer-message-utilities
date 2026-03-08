@@ -21,7 +21,8 @@ final readonly class CreateMessage
         StreamId $streamId,
         EventName $eventName,
         EventVersion $eventVersion,
-        array $payload
+        array $payload,
+        ?int $expectedCurrentVersion = 0,
     ): Message {
         return Message::fromString(
             sprintf(
@@ -29,7 +30,8 @@ final readonly class CreateMessage
                 $streamId,
                 $eventName,
                 $eventVersion,
-                json_encode($payload, JSON_THROW_ON_ERROR)
+                json_encode($payload, JSON_THROW_ON_ERROR),
+                $expectedCurrentVersion,
             ) . MessageMarkup::NewEventParser->value
         );
     }
