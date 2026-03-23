@@ -46,6 +46,28 @@ final readonly class CreateMessage
         );
     }
 
+    public static function forAcceptanceOfNewEvent(StreamId $streamId, Checkpoint $checkpoint): Message
+    {
+        return Message::fromString(
+            sprintf(
+                MessagePattern::NewEventAccepted->value,
+                $streamId,
+                $checkpoint->toInt(),
+            )
+        );
+    }
+
+    public static function forRejectionOfNewEvent(StreamId $streamId, Checkpoint $checkpoint): Message
+    {
+        return Message::fromString(
+            sprintf(
+                MessagePattern::NewEventRejected->value,
+                $streamId,
+                $checkpoint->toInt(),
+            )
+        );
+    }
+
     public static function forCatchupRequest(
         StreamId $streamId,
         ApplicationId $applicationId,

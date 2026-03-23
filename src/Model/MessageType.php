@@ -9,6 +9,8 @@ enum MessageType: string
     case Acknowledgement = 'ACKNOWLEDGEMENT';
     case CatchupRequest = 'CATCHUP';
     case NewEvent = 'NEW_EVENT';
+    case NewEventAccepted = 'NEW_EVENT_ACCEPTED';
+    case NewEventRejected = 'NEW_EVENT_REJECTED';
     case ProvideIdentity = 'IDENTITY';
     case ReadStream = 'READ_STREAM';
     case RejectEvent = 'REJECT_EVENT';
