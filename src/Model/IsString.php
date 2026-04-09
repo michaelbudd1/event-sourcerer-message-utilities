@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PearTreeWebLtd\EventSourcererMessageUtilities\Model;
 
-interface IsString
+interface IsString extends \Stringable
 {
     public const string NULL_REPRESENTATION = '';
 
