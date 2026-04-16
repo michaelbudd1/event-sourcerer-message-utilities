@@ -36,15 +36,15 @@ final readonly class CreateMessage
         );
     }
 
-    public static function forNewEvent(string $eventJson): Message
-    {
-        return Message::fromString(
-            sprintf(
-                MessagePattern::NewEvent->value,
-                $eventJson,
-            ) . MessageMarkup::NewEventParser->value
-        );
-    }
+//    public static function forNewEvent(string $eventJson): Message
+//    {
+//        return Message::fromString(
+//            sprintf(
+//                MessagePattern::NewEvent->value,
+//                $eventJson,
+//            ) . MessageMarkup::NewEventParser->value
+//        );
+//    }
 
     public static function forAcceptanceOfNewEvent(StreamId $streamId, Checkpoint $checkpoint): Message
     {
